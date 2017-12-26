@@ -1,0 +1,35 @@
+{
+  "name": "meteorite-strike-d3",
+  "version": "1.0.0",
+  "description": "Plotting historical meteorite stikes across the globe using D3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dickyw71/meteorite-strike-d3.git"
+  },
+  "keywords": [
+    "D3",
+    "FCC",
+    "freeCodeCamp",
+    "Data",
+    "Visualization"
+  ],
+  "author": "Richard Wheatley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dickyw71/meteorite-strike-d3/issues"
+  },
+  "homepage": "https://github.com/dickyw71/meteorite-strike-d3#readme",
+  "dependencies": {
+    "d3-geo": "^1.9.1",
+    "d3-geo-projection": "^2.3.2",
+    "node-static": "^0.7.10"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1"
+  }
+}
