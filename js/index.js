@@ -25,7 +25,7 @@ d3.json("strikes-map.json", function(error, topology) {
       .attr("d", path);
 
     g.selectAll(".strike")
-    .data(topology.objects.strikes.geometries)
+    .data(topology.objects.strikes.geometries.sort((a, b) => b.properties.mass - a.properties.mass))
     .enter()
         .append("path")
         .attr("class", "strike")
