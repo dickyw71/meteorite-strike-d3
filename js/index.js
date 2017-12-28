@@ -15,6 +15,8 @@ var radius = d3.scaleSqrt()
     .domain([0, 1e6])
     .range([0, 10]);
 
+var rainbow = d3.scaleSequential(d3.interpolateRainbow);
+
 d3.json("strikes-map.json", function(error, topology) {
 
     g.selectAll(".map")
@@ -29,5 +31,6 @@ d3.json("strikes-map.json", function(error, topology) {
     .enter()
         .append("path")
         .attr("class", "strike")
-        .attr("d", path.pointRadius((d) => radius(d.properties.mass)));
+        .attr("d", path.pointRadius((d) => radius(d.properties.mass)))
+        .attr("fill", (d) => rainbow(parseInt(d.properties.mass)));
 });
