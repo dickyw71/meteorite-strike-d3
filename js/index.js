@@ -15,7 +15,8 @@ var radius = d3.scaleSqrt()
     .domain([0, 1e6])
     .range([0, 10]);
 
-var rainbow = d3.scaleSequential(d3.interpolateRainbow);
+var rainbow = d3.scaleSequential(d3.interpolateRainbow)
+    .domain([0, 1000000]);
 
 d3.json("strikes-map.json", function(error, topology) {
 
