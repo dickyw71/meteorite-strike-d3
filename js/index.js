@@ -1,7 +1,16 @@
 var width = 1100;
 var height = 960;
 
-var projection = d3.geoNaturalEarth1();
+var parseTime = d3.timeParse("%B %d, %Y");
+
+var tip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([-5,25])
+    .html(function(d) { return "<span>Name: " + d.properties.name + "</span>" 
+                            + "<br/><span>Mass: " + d.properties.mass + "</span>"
+                            + "<br/><span>Year: " + new Date(Date.parse(d.properties.year)).getFullYear() + "</span>"; })
+
+var projection = d3.geoCylindricalStereographic();
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -9,7 +18,8 @@ var svg = d3.select("body").append("svg")
 
 var path = d3.geoPath(projection);
 
-var g = svg.append("g");
+var g = svg.append("g")
+    .call(tip);
 
 var radius = d3.scaleSqrt()
     .domain([0, 1e6])
@@ -33,5 +43,9 @@ d3.json("strikes-map.json", function(error, topology) {
         .append("path")
         .attr("class", "strike")
         .attr("d", path.pointRadius((d) => radius(d.properties.mass)))
-        .attr("fill", (d) => rainbow(parseInt(d.properties.mass)));
+        .attr("fill", (d) => rainbow(parseInt(d.properties.mass)))
+    .on("mouseover", function(d, i) {
+        tip.show(d, svg)
+     })
+    .on("mouseout", tip.hide);
 });
