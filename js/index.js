@@ -1,7 +1,5 @@
-var width = 1100;
-var height = 960;
-
-var parseTime = d3.timeParse("%B %d, %Y");
+var width = 960;
+var height = 560;
 
 var tip = d3.tip()
     .attr("class", "d3-tip")
@@ -17,6 +15,15 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 var path = d3.geoPath(projection);
+
+var zoom_handler = d3.zoom()
+    .on("zoom", zoom_actions);
+
+function zoom_actions() {
+    g.attr("transform", d3.event.transform);
+}
+
+zoom_handler(svg);
 
 var g = svg.append("g")
     .call(tip);
