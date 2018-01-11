@@ -1,4 +1,3 @@
-
 var margin = 50,
 width = parseInt(d3.select('.world-map').style("width")) - margin*2,
 height = 600 - margin*2;
@@ -35,8 +34,6 @@ zoom_handler(svg);
 //     .style("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
 //     .attr("transform", "translate(" + width/2 + ","+ -margin*0.3 +")")  // centre in top margin
 //     .text("35 Fastest times up Alpe d'Huez (normalized to 13.8km distance)");
-
-
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin + "," + margin + ")")
