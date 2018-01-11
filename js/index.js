@@ -1,5 +1,7 @@
-var width = 1100;
-var height = 960;
+
+var margin = 50,
+width = parseInt(d3.select('.world-map').style("width")) - margin*2,
+height = 600 - margin*2;
 
 var parseTime = d3.timeParse("%B %d, %Y");
 
@@ -12,13 +14,32 @@ var tip = d3.tip()
 
 var projection = d3.geoCylindricalStereographic();
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+var svg = d3.select(".world-map")
+    .attr("width", width + margin*2 )
+    .attr("height", height + margin*2 )
+    .attr("class", ".world-map");
 
 var path = d3.geoPath(projection);
 
+var zoom_handler = d3.zoom()
+    .on("zoom", zoom_actions);
+
+function zoom_actions() {
+    g.attr("transform", d3.event.transform);
+}
+
+zoom_handler(svg);
+
+// svg.append("text")
+//     .attr("class", "chart-title")
+//     .style("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+//     .attr("transform", "translate(" + width/2 + ","+ -margin*0.3 +")")  // centre in top margin
+//     .text("35 Fastest times up Alpe d'Huez (normalized to 13.8km distance)");
+
+
+
 var g = svg.append("g")
+    .attr("transform", "translate(" + margin + "," + margin + ")")
     .call(tip);
 
 var radius = d3.scaleSqrt()
