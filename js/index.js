@@ -14,8 +14,8 @@ var tip = d3.tip()
 var projection = d3.geoCylindricalStereographic();
 
 var svg = d3.select(".world-map")
-    .attr("width", width + margin*2 )
-    .attr("height", height + margin*2 )
+    .attr("width", width)
+    .attr("height", height)
     .attr("class", ".world-map");
 
 var path = d3.geoPath(projection);
@@ -29,11 +29,11 @@ function zoom_actions() {
 
 zoom_handler(svg);
 
-// svg.append("text")
-//     .attr("class", "chart-title")
-//     .style("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-//     .attr("transform", "translate(" + width/2 + ","+ -margin*0.3 +")")  // centre in top margin
-//     .text("35 Fastest times up Alpe d'Huez (normalized to 13.8km distance)");
+svg.append("text")
+    .attr("class", "map-title")
+    .style("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+    .attr("transform", "translate(" + width/2 + ","+ margin*0.5 +")")  // centre in top margin
+    .text("Meteorite strikes plotted across the globe");
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin + "," + margin + ")")
