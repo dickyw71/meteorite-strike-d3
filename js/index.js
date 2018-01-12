@@ -1,6 +1,5 @@
-var margin = 50,
-width = parseInt(d3.select('.world-map').style("width")) - margin*2,
-height = 600 - margin*2;
+var width = parseInt(d3.select('.svg-container').style("width")),
+    height = 600;
 
 var parseTime = d3.timeParse("%B %d, %Y");
 
@@ -30,7 +29,7 @@ function zoom_actions() {
 zoom_handler(svg);
 
 var g = svg.append("g")
-    .attr("transform", "translate(" + margin + "," + margin + ")")
+    // .attr("transform", "translate(" + margin + "," + margin + ")")
     .call(tip);
 
 var radius = d3.scaleSqrt()
