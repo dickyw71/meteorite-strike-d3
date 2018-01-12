@@ -29,12 +29,6 @@ function zoom_actions() {
 
 zoom_handler(svg);
 
-// svg.append("text")
-//     .attr("class", "map-title")
-//     .style("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-//     .attr("transform", "translate(" + width/2 + ","+ margin*0.5 +")")  // centre in top margin
-//     .text("Meteorite strikes plotted across the globe");
-
 var g = svg.append("g")
     .attr("transform", "translate(" + margin + "," + margin + ")")
     .call(tip);
