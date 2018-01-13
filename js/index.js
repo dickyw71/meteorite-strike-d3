@@ -3,14 +3,19 @@ var width = parseInt(d3.select('.svg-container').style("width")),
 
 var parseTime = d3.timeParse("%B %d, %Y");
 
-var tip = d3.tip()
+var meteoriteTip = d3.tip()
     .attr("class", "d3-tip")
-    .offset([-5,25])
     .html(function(d) { return "<span>Name: " + d.properties.name + "</span>" 
                             + "<br/><span>Mass: " + d.properties.mass + "</span>"
                             + "<br/><span>Year: " + new Date(Date.parse(d.properties.year)).getFullYear() + "</span>"; })
 
-var projection = d3.geoCylindricalStereographic();
+var countryTip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([-5,25])
+    .html((d) => "<span>" + d.properties.Country + "</span>");                        
+
+var projection = d3.geoCylindricalStereographic()
+    .scale(150);
 
 var svg = d3.select(".world-map")
     .attr("width", width)
@@ -29,8 +34,9 @@ function zoom_actions() {
 zoom_handler(svg);
 
 var g = svg.append("g")
-    // .attr("transform", "translate(" + margin + "," + margin + ")")
-    .call(tip);
+    .attr("transform", "translate(" + 0 + "," + 50 + ")")
+    .call(countryTip)
+    .call(meteoriteTip);
 
 var radius = d3.scaleSqrt()
     .domain([0, 1e6])
@@ -46,7 +52,11 @@ d3.json("strikes-map.json", function(error, topology) {
     .enter()
       .append("path")
       .attr("class", "map")
-      .attr("d", path);
+      .attr("d", path)
+    .on("mouseover", function(d, i) {
+        countryTip.show(d, svg)
+     })
+    .on("mouseout", countryTip.hide);
 
     g.selectAll(".strike")
     .data(topology.objects.strikes.geometries.sort((a, b) => b.properties.mass - a.properties.mass))
@@ -56,7 +66,7 @@ d3.json("strikes-map.json", function(error, topology) {
         .attr("d", path.pointRadius((d) => radius(d.properties.mass)))
         .attr("fill", (d) => rainbow(parseInt(d.properties.mass)))
     .on("mouseover", function(d, i) {
-        tip.show(d, svg)
+        meteoriteTip.show(d, svg)
      })
-    .on("mouseout", tip.hide);
+    .on("mouseout", meteoriteTip.hide);
 });
