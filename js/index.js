@@ -11,7 +11,6 @@ var meteoriteTip = d3.tip()
 
 var countryTip = d3.tip()
     .attr("class", "d3-tip")
-    .offset([-5,25])
     .html((d) => "<span>" + d.properties.Country + "</span>");                        
 
 var projection = d3.geoCylindricalStereographic()
