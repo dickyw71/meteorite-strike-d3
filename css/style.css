@@ -1,0 +1,31 @@
+.svg-container {
+    margin: 0 auto;
+    width: 75%;
+}
+svg {
+    border-radius: 6px;
+    background-color: lightseagreen;
+}
+.map {
+    fill: #462C63;
+    stroke: lightgray;
+    stroke-width: 0.1px;
+}
+.map-title {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    fill: black;
+}
+.strike {
+    stroke: #fff;
+    stroke-width: 0.2px;
+    opacity: 0.8;
+} 
+.d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: #D94B42;
+    color: #FFFEFE;
+    border-radius: 6px;
+    pointer-events: none;
+}
