@@ -1,54 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-        .svg-container {
-            margin: 0 auto;
-            width: 75%;
-        }
-        svg {
-            border-radius: 6px;
-            background-color: lightseagreen;
-        }
-        .map {
-            fill: #462C63;
-            stroke: lightgray;
-            stroke-width: 0.1px;
-        }
-        .map-title {
-            font-size: 20px;
-            font-family: 'Roboto', sans-serif;
-            fill: black;
-        }
-        .strike {
-            stroke: #fff;
-            stroke-width: 0.2px;
-            opacity: 0.8;
-        } 
-        .d3-tip {
-            line-height: 1;
-            padding: 12px;
-            background: #D94B42;
-            color: #FFFEFE;
-            border-radius: 6px;
-            pointer-events: none;
-        }
-    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible">
     <title>Global Strikes</title>
     <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="text-center">
-        <h3>D3 Map Visualization
+    <header>
+        <h3 class="text-center">D3 Map Visualization
             <small>showing meteorite strikes across the globe</small>
         </h3>
-    </div>
-    <div class='svg-container'>
+    </header>
+    <main class='svg-container'>
             <svg class="world-map"/> 
-    </div>
+    </main>
+    <footer></footer>
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.min.js'></script>
 <script src="https://d3js.org/d3-geo.v1.min.js"></script>
