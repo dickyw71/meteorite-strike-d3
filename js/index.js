@@ -13,15 +13,12 @@ var countryTip = d3.tip()
     .attr("class", "d3-tip")
     .html((d) => "<span>" + d.properties.Country + "</span>");                        
 
-var projection = d3.geoCylindricalStereographic()
-    .scale(150);
-
 var svg = d3.select(".world-map")
     .attr("width", width)
     .attr("height", height)
     .attr("class", ".world-map");
 
-var path = d3.geoPath(projection);
+var path = d3.geoPath();
 
 var zoom_handler = d3.zoom()
     .on("zoom", zoom_actions);
@@ -44,7 +41,7 @@ var radius = d3.scaleSqrt()
 var rainbow = d3.scaleSequential(d3.interpolateRainbow)
     .domain([0, 1000000]);
 
-d3.json("strikes-map.json", function(error, topology) {
+d3.json("world-meteorite-strikes.json", function(error, topology) {
 
     g.selectAll(".map")
     .data(topojson.feature(topology, topology.objects.world).features)
