@@ -14,6 +14,9 @@ and download world map countries data file from
 `npm install -g shapefile`
 `shp2json ne_50m_admin_0_countries.shp -o ne_50m_admin_0_countries.json`
 
+### Install ndjson-cli
+`npm install -g ndjson-cli`
+
 ### Remove white-space from the meteorite-strike-data.json file to make it easier to process
 `ndjson-cat meteorite-strike-data.json > meteorites.json`
 
@@ -29,9 +32,6 @@ geoproject 'd3.geoCylindricalStereographic()' \
 < meteorites.json \ 
 > meteorites_projected.json
 ```
-
-### Install ndjson-cli
-`npm install -g ndjson-cli`
 
 ### Convert map GeoJSON source file to a Newline Delimited JSON array of features
 ```
