@@ -14,6 +14,9 @@ and download world map countries data file from
 `npm install -g shapefile`
 `shp2json ne_50m_admin_0_countries.shp -o ne_50m_admin_0_countries.json`
 
+### Remove white-space from the meteorite-strike-data.json file to make it easier to process
+`ndjson-cat meteorite-strike-data.json > meteorites.json`
+
 ### Apply a Cylindrical Sterographic projection to the map and meteorites data files
 `npm install -g d3-geo-projection`
 ```
