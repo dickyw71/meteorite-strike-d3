@@ -2,8 +2,8 @@
 
 ## Download the source data for meteorite strikes and world map
 Download meteorite strike GeoJSON data from
-[FreeCodeCamp](https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/meteorite-strike-data.json)
-Download world map countries data file from 
+[freeCodeCamp](https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/meteorite-strike-data.json)
+and download world map countries data file from 
 [Natural Earth](http://www.naturalearthdata.com/downloads/50m-cultural-vectors/)
 
 ## Prepare data using command-line tools
