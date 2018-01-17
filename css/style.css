@@ -37,3 +37,8 @@ svg {
     border-radius: 6px;
     pointer-events: none;
 }
+footer {
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
