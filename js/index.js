@@ -30,7 +30,7 @@ function zoom_actions() {
 zoom_handler(svg);
 
 var g = svg.append("g")
-    .attr("transform", "translate(" + 0 + "," + 50 + ")")
+    .attr("transform", "translate(-" + 77 + ", -" + 47 + ") scale(" + 1.43 + ")")
     .call(countryTip)
     .call(meteoriteTip);
 
