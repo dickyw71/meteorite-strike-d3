@@ -1,5 +1,8 @@
 # meteorite-strike-d3
 
+This project plots meteorite strikes across the globe. Each strike is marked by a circle sized and coloured to represent the meteorites relative mass. Addition information, such as the date it fell, is shown on a mouse-over (or touch) tool tip. The map can be zoomed and panned using the touch or mouse gestures (pinching and dragging).
+I used the [D3.js](https://d3js.org/) library and used map data from the Natural Earth project. 
+The project is a data visualization challenge from the freeCodeCamp curriculum.
 ## Download the source data for meteorite strikes and world map
 Download meteorite strike GeoJSON data from
 [freeCodeCamp](https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/meteorite-strike-data.json)
